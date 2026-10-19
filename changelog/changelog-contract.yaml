@@ -1,0 +1,8 @@
+databaseChangeLog:
+  # Reusa el changelog normal: no vuelve a ejecutar changesets ya aplicados.
+  - include:
+      file: changelog-master.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: ../01_ddl/04_alter/r6-contract.yaml
+      relativeToChangelogFile: true
