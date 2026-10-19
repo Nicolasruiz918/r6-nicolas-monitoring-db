@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS monitoring.sent_notification;
+DROP TABLE IF EXISTS monitoring.improvement_plan;
+DROP TABLE IF EXISTS monitoring.generated_alert;
+DROP TABLE IF EXISTS monitoring.tracking_session;
+DROP TABLE IF EXISTS monitoring.kpi_tracking;
+DROP TABLE IF EXISTS monitoring.ficha_tracking;
+DROP TABLE IF EXISTS monitoring.kpi_status;
+DROP TABLE IF EXISTS monitoring.risk_level;
+DROP TABLE IF EXISTS monitoring.alert_type;
+DROP TABLE IF EXISTS monitoring.kpi_type;

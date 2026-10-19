@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: seed-kpi-type-001
+      author: jesus-gonzalez
+      labels: "seed,monitoring"
+      comment: Seed kpi_type (4 tipos) desde data-model.md de monitoring
+      changes:
+        - sqlFile:
+            path: 001_seed_kpi_type.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/001_seed_kpi_type.rollback.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: hu-mon-f3-seed-risk-level
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,seed,monitoring"
+      comment: Seed risk_level (INFO..CRITICAL) desde data-model.md de monitoring
+      changes:
+        - sqlFile:
+            path: 002_seed_risk_level.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/002_seed_risk_level.rollback.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: hu-mon-f3-seed-kpi-status
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,seed,monitoring"
+      comment: Seed kpi_status (ON_TRACK/AT_RISK/CRITICAL) desde data-model.md de monitoring
+      changes:
+        - sqlFile:
+            path: 003_seed_kpi_status.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/003_seed_kpi_status.rollback.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: hu-mon-f3-seed-alert-type
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,seed,monitoring"
+      comment: Seed alert_type (6 alertas, Circular 1-2014 / Acuerdo 00003/2012) desde data-model.md de monitoring
+      changes:
+        - sqlFile:
+            path: 004_seed_alert_type.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/004_seed_alert_type.rollback.sql
+            relativeToChangelogFile: true

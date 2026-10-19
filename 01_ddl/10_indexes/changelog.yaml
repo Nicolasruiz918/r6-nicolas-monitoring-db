@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-monitoring-indexes
+      author: Andrey Gómez
+      comment: Create indexes for monitoring tables to improve lookups and reporting performance.
+      changes:
+        - sqlFile:
+            path: indexes.sql
+            relativeToChangelogFile: true
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/rollback_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: refinamiento-monitoring-notification-idx-970
+      author: jesus-gonzalez
+      labels: "refinamiento,notification,index,v2"
+      comment: "Indice parcial de notificaciones no-leidas por destinatario"
+      changes:
+        - sqlFile: {path: 970_refinamiento_notification_idx.sql, relativeToChangelogFile: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/10_indexes/970_refinamiento_notification_idx.rollback.sql, relativeToChangelogFile: true, stripComments: false}
+  - changeSet:
+      id: refinamiento-monitoring-d12-dedup-980
+      author: jesus-gonzalez
+      labels: "refinamiento,decisions,d12,index,v2"
+      comment: "D-12: indice unico parcial de deduplicacion de notificaciones (source_event_id NOT NULL)"
+      changes:
+        - sqlFile: {path: 980_refinamiento_d12_dedup.sql, relativeToChangelogFile: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/10_indexes/980_refinamiento_d12_dedup.rollback.sql, relativeToChangelogFile: true, stripComments: false}
+
+  - changeSet:
+      id: hu-mon-f3-create-outbox-indexes
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,indexes,outbox,adr-005"
+      comment: "Partial index for the relay to scan pending monitoring.outbox rows"
+      changes:
+        - sqlFile: {path: 002_create_outbox_indexes.sql, relativeToChangelogFile: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/10_indexes/002_create_outbox_indexes.rollback.sql, relativeToChangelogFile: true, stripComments: false}
+
+  - changeSet:
+      id: hu-mon-f3-drop-notification-980
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,ddl,adr-005,ownership"
+      comment: "ADR-005: drop monitoring.sent_notification (ownership moved to notification-service); includes columns added by refinamiento-monitoring-notification-970. Registered here (not in 04_alter) so it runs after every pre-existing changeset that still references sent_notification, incl. 002-create-monitoring-indexes/970-idx/980-dedup above."
+      changes:
+        - sqlFile: {path: ../04_alter/980_hu_mon_f3_drop_notification.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/04_alter/980_hu_mon_f3_drop_notification.rollback.sql, relativeToChangelogFile: true, stripComments: false}

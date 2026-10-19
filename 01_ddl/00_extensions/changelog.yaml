@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-enable-monitoring-uuid-extension
+      author: Andrey Gómez
+      labels: "HU-07-dev,ddl,base,extensions"
+      comment: Enables the uuid-ossp extension for monitoring UUID values.
+      changes:
+        - sqlFile:
+            path: 001_enable_uuid_extension.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/00_extensions/001_enable_uuid_extension.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false

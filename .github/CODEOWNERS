@@ -1,0 +1,6 @@
+# CODEOWNERS — design-software-monitoring-db
+# Catch-all: arquitectos/coordinadores + owners del repo (mayor trabajo).
+# Un PR requiere aprobacion de al menos un code owner (ver ruleset del repo).
+# Granularidad por rol se afinara cuando existan los teams de rol.
+
+*   @code-sena/design-software-develop @jsgh1 @Nicolasruiz918 @JhonCamiloSuaza

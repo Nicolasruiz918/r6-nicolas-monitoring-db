@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: dcl-grants-monitoring-001
+      author: jesus-gonzalez
+      labels: "dcl,grants"
+      comment: Grants least-privilege del dominio monitoring
+      changes:
+        - sqlFile: {path: 001_grants.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sql: {sql: "SELECT 1;"}
+
+  - changeSet:
+      id: hu-mon-f3-grants-outbox
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,dcl,grants,outbox"
+      comment: Grants least-privilege targeted a monitoring.outbox
+      changes:
+        - sqlFile: {path: 002_grants_outbox.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sql: {sql: "SELECT 1;"}

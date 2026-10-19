@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-monitoring-enum-types
+      author: Andrey Gómez
+      labels: "HU-07-dev,ddl,base,types"
+      comment: Creates enum types used by the monitoring domain tables.
+      changes:
+        - sqlFile:
+            path: 001_create_monitoring_enum_types.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/02_types/001_create_monitoring_enum_types.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
