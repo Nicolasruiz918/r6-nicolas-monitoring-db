@@ -1,0 +1,8 @@
+Output of SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_schema='monitoring' AND table_name='improvement_plan' AND column_name IN ('specific_actions','specific_actions_v2') ORDER BY column_name:
+COLUMN_NAME | DATA_TYPE | IS_NULLABLE |
+specific_actions | jsonb | NO | 
+
+Output of SELECT count(*) AS total_rows, count(*) FILTER (WHERE specific_actions IS NULL) AS null_actions, count(*) FILTER (WHERE jsonb_typeof(specific_actions) <> 'object') AS non_object_actions FROM monitoring.improvement_plan:
+TOTAL_ROWS | NULL_ACTIONS | NON_OBJECT_ACTIONS |
+0 | 0 | 0 | 
+

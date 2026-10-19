@@ -1,0 +1,7 @@
+Fecha: 2026-10-19
+Ambiente: PostgreSQL local aislado r6_http_test, Docker Compose ds-r6-final, puerto 15443
+Comando: $env:MONITORING_HTTP_TEST_DATABASE_URL='postgresql://design_software_user:***@localhost:15443/r6_http_test'; $env:MONITORING_HTTP_TEST_ALLOW_RESET='1'; pytest -q tests/test_r6_http_postgres_integration.py -s
+Resultado: 1 passed, 3 warnings in 2.07s
+Cobertura: POST, GET por id, PUT de specific_actions, GET listado, EXPAND, BACKFILL, CONTRACT y rollback CONTRACT.
+Registros: 2 planes representativos; equivalencia TEXT/JSONB comprobada y datos restaurados después del rollback.
+Warnings: Starlette/httpx deprecated, advertencia SQLAlchemy de default de UUID y permiso de .pytest_cache; no cambiaron el resultado.

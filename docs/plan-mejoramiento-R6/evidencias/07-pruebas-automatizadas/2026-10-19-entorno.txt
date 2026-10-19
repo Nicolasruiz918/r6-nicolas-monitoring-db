@@ -1,0 +1,13 @@
+Identificador: R6-ENV-20261019
+Requisito: R6.c / R6.d
+Fecha: 2026-10-19
+Repositorio: design-software
+Ambiente: local de desarrollo
+Comando: Get-Command py,python,docker,psql,liquibase; docker info
+Resultado esperado: Python, PostgreSQL/Liquibase y Docker Desktop disponibles
+Resultado obtenido: py/python/psql/liquibase no encontrados; Docker/Compose instalados; Docker daemon no accesible (permission denied en npipe docker_engine)
+Estado: bloqueado
+Ruta: evidencias/07-pruebas-automatizadas/2026-10-19-entorno.txt
+
+Se creó `design-software-docker-infra/.env.develop` con valores locales no reales y excluidos por `.gitignore`.
+`docker compose ... up postgres -d`, `liquibase update` y CONTRACT terminaron con exit code 1 por `permission denied while trying to connect to the docker API at npipe:////./pipe/docker_engine`.

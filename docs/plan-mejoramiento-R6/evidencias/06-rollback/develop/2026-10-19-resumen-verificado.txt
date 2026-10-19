@@ -1,0 +1,23 @@
+Identificador: R6-ROLLBACK-DEVELOP-20261019
+Requisito: R6.d
+Fecha: 2026-10-19
+Ambiente: develop aislado, proyecto Compose ds-r6-final, puerto 15443
+
+Ejecución previa:
+- `docker compose --env-file .env.develop up postgres -d`: aprobado.
+- Liquibase normal `update`: aprobado; 26 changesets, incluyendo 991 y 992.
+- Liquibase CONTRACT dedicado `update --context-filter=r6-contract`: aprobado; 993 ejecutado.
+
+Rollback verificado:
+- Script: `scripts/verify-rollback.ps1 -EnvFile .env.develop -Environment develop -AllowIsolatedEnvironment`.
+- Changeset revertido exactamente: `r6-monitoring-contract-specific-actions-v2-993`.
+- Resultado: Liquibase `rollback-count 1` exitoso.
+- Estructura posterior: `specific_actions_v2 JSONB NOT NULL` + `specific_actions TEXT NOT NULL`.
+- Registros posteriores: 0; no hubo datos que perder en esta instancia.
+
+Restauración posterior:
+- CONTRACT fue reaplicado exitosamente.
+- Estado final: `specific_actions JSONB NOT NULL`; changesets 991, 992 y 993 `EXECUTED`.
+
+Nota: rollback 991/992 y equivalencia con datos representativos fueron validados por `test_r6_postgres_integration.py`. No se ejecutaron rollback en qa, staging ni main.
+Estado: aprobado para develop aislado; qa/staging/main pendientes.
