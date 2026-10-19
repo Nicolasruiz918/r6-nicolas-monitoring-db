@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-monitoring-schema
+      author: Andrey Gómez
+      labels: "HU-07-dev,ddl,base,schemas"
+      comment: Creates the monitoring schema for tracking, KPI, alert, and notification objects.
+      changes:
+        - sqlFile:
+            path: 001_create_schema_monitoring.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/01_schemas/001_create_schema_monitoring.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false

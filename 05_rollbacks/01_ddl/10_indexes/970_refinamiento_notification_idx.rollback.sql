@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS monitoring.ix_sent_notification_recipient_unread;

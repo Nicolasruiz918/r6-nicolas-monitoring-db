@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-monitoring-domain-tables
+      author: Andrey Gómez
+      comment: Create monitoring domain tables for KPIs, alerts, tracking, and notifications.
+      changes:
+        - sqlFile:
+            path: monitoring_tables.sql
+            relativeToChangelogFile: true
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/rollback_monitoring.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: hu-mon-f3-create-outbox-table
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,ddl,outbox,adr-005"
+      comment: "Transactional outbox for monitoring domain events (ADR-005), same style as identity.outbox"
+      changes:
+        - sqlFile: {path: 002_create_outbox_table.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/03_tables/002_create_outbox_table.rollback.sql, relativeToChangelogFile: true, stripComments: false}

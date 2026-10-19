@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: hu-mon-f3-trigger-active-alert-count
+      author: jesus-gonzalez
+      labels: "HU-MON-F3,triggers,generated_alert,ficha_tracking"
+      comment: "Keep ficha_tracking.active_alert_count (denormalized, decisions.md #03) in sync with generated_alert"
+      changes:
+        - sqlFile: {path: 001_ficha_tracking_active_alert_count.sql, relativeToChangelogFile: true, splitStatements: false, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/09_triggers/001_ficha_tracking_active_alert_count.rollback.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}

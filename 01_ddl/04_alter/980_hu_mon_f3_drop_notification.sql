@@ -1,0 +1,13 @@
+-- HU-MON-F3 (2026-08-28): ADR-005 ownership move -- notification is a transversal
+-- capability extracted from monitoring into notification-service/notification_db.
+-- Drops monitoring.sent_notification and everything added on top of it, including
+-- the actionable-notification columns from refinamiento-monitoring-notification-970
+-- (2026-08-13): is_read, read_at, category, priority, deep_link, source_event_id,
+-- source_event_type. The notification_channel_type / notification_send_status_type
+-- ENUMs were already converted to VARCHAR+CHECK and dropped by remediation-monitoring-960;
+-- nothing enum-typed remains to drop here.
+-- No CASCADE: no other monitoring table holds a FK to sent_notification; its own
+-- constraints and indexes (idx_sent_notification_recipient, idx_sent_notification_pending,
+-- ix_sent_notification_generated_alert_id, ix_sent_notification_recipient_unread,
+-- uq_sent_notification_dedup) are owned by the table and are dropped along with it.
+DROP TABLE IF EXISTS monitoring.sent_notification;
