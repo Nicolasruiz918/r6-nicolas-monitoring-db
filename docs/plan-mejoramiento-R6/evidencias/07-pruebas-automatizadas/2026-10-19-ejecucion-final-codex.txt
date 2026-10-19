@@ -1,0 +1,30 @@
+Fecha: 2026-10-19
+Ambiente: sesión Codex Windows, rama hu-r6-nicolas-dev
+Commits probados:
+  DB: 56e8235
+  Service: cd69536
+  Infra: 7923947
+
+Comandos ejecutados:
+  docker context ls
+  docker context show
+  docker version
+  docker info
+  docker ps
+  docker context use desktop-linux
+  ..\design-software-monitoring-service\.venv\Scripts\python.exe -m pytest -q
+  ..\design-software-monitoring-service\.venv\Scripts\python.exe -m ruff check .
+  docker compose --env-file ..\design-software-docker-infra\.env.develop -f ..\r6-nicolas-docker-infra\docker-compose.yml config --quiet
+
+Resultados reales:
+  pytest: 19 passed, 5 skipped, 1 warning in 1.97s
+  ruff: All checks passed!
+  docker compose config: exit 0
+  Docker CLI: 29.9.1; Docker Compose: 5.6.0; Docker Desktop CLI: 4.96.0
+  docker context: default; docker context use desktop-linux: falló por acceso denegado a ~/.docker/contexts/meta
+  docker version/info/ps: fallaron por permission denied al pipe npipe:////./pipe/docker_engine
+
+Estado:
+  Pruebas Python, contrato OpenAPI y Ruff: APROBADO.
+  PostgreSQL, Liquibase, pruebas CRUD reales, continuidad y rollback: BLOQUEADO en esta sesión.
+  No se ejecutaron migraciones ni se usaron bases compartidas o productivas.
