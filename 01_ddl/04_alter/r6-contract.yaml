@@ -11,7 +11,7 @@ databaseChangeLog:
         - columnExists: {tableName: improvement_plan, columnName: specific_actions_v2, schemaName: monitoring}
         - sqlCheck:
             expectedResult: "0"
-            sql: "SELECT count(*) FROM monitoring.improvement_plan WHERE specific_actions_v2 IS NULL OR jsonb_typeof(specific_actions_v2) <> 'object' OR jsonb_array_length(COALESCE(specific_actions_v2->'actions', '[]'::jsonb)) <> 1 OR COALESCE(specific_actions_v2->'actions'->0->>'text', '') <> specific_actions"
+            sql: "SELECT count(*) FROM monitoring.improvement_plan WHERE specific_actions_v2 IS NULL OR jsonb_typeof(specific_actions_v2) <> 'object' OR jsonb_array_length(COALESCE(specific_actions_v2->'actions', '[]'::jsonb)) <> 1 OR (specific_actions_v2->'actions'->0->>'text') IS DISTINCT FROM specific_actions"
       changes:
         - sqlFile: {path: r6_contract_specific_actions_v2.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
       rollback:
