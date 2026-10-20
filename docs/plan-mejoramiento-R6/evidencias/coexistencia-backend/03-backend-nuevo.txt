@@ -1,0 +1,38 @@
+INFO:     127.0.0.1:43588 - "GET /api/v1/health HTTP/1.1" 200 OK
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+INFO:     127.0.0.1:34474 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49080 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38770 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55076 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46422 - "GET /api/v1/improvement-plans/ccaad70b-2b9c-4401-bb7c-044e055baf01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41902 - "POST /api/v1/improvement-plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:41010 - "PUT /api/v1/improvement-plans/46652557-b572-4b46-8927-0b7826e2d9c2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33194 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59796 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53846 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33954 - "GET /api/v1/health HTTP/1.1" 200 OK
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+INFO:     Started server process [11]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:18002 (Press CTRL+C to quit)
+{"timestamp": "2026-10-20T02:45:43+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "4d2e8f97-8a34-457f-914a-d84bf6d6cb4e", "event_id": null}
+{"timestamp": "2026-10-20T02:47:39+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "e8231ff0-b5ba-4256-8bf1-1f78f4d5bc66", "event_id": null}
+{"timestamp": "2026-10-20T02:48:53+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "393b316b-ca16-467a-b7ef-2ba5a95f1515", "event_id": null}
+{"timestamp": "2026-10-20T02:51:17+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "d847f502-a259-422b-8100-2a3a097aa4dd", "event_id": null}
+{"timestamp": "2026-10-20T03:02:34+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "bbba9a33-fa22-4ce4-bdc1-8bcb61bb6d6d", "event_id": null}
+{"timestamp": "2026-10-20T03:07:02+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "533a21ff-5a96-4442-b7ac-130248f2eaa2", "event_id": null}
+{"timestamp": "2026-10-20T03:07:45+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "f2a78e0b-c71b-47eb-93ec-973042a1da8a", "event_id": null}
+{"timestamp": "2026-10-20T03:09:00+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "a974dae8-26fe-4223-8d24-52b4c398918c", "event_id": null}
+INFO:     127.0.0.1:42282 - "GET /api/v1/improvement-plans/ccaad70b-2b9c-4401-bb7c-044e055baf01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38994 - "POST /api/v1/improvement-plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:39658 - "PUT /api/v1/improvement-plans/46652557-b572-4b46-8927-0b7826e2d9c2 HTTP/1.1" 200 OK
+{"timestamp": "2026-10-20T03:15:43+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "ae7679a3-1198-445a-8c8c-1f1848bd6167", "event_id": null}
+{"timestamp": "2026-10-20T03:16:16+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "a0293194-9056-4f61-8cd6-6c544c1d14bc", "event_id": null}
+{"timestamp": "2026-10-20T03:18:30+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "349a46f1-53da-4af1-8dc0-73214703fe6c", "event_id": null}
+{"timestamp": "2026-10-20T03:24:40+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "4446e8fa-5937-47b7-a4ef-e26d2548a97d", "event_id": null}
+{"timestamp": "2026-10-20T03:27:04+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "e9141065-69c9-4023-b12a-3f4bb5f9351f", "event_id": null}
+{"timestamp": "2026-10-20T03:27:17+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "3e1459fc-e354-4c7a-bb83-d5f91d8de9e2", "event_id": null}
+{"timestamp": "2026-10-20T03:27:31+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "057e46a5-ad8d-4b2e-8bc1-e4ad6a4e0426", "event_id": null}

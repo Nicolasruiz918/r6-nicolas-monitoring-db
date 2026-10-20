@@ -1,0 +1,141 @@
+INFO:     127.0.0.1:50602 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40594 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42412 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47526 - "GET /api/v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39180 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55228 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50582 - "POST /api/v1/improvement-plans HTTP/1.1" 500 Internal Server Error
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+INFO:     Started server process [10]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:18001 (Press CTRL+C to quit)
+{"timestamp": "2026-10-20T02:42:13+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "8819c5ea-9f1a-47e5-84c2-87aeac22adfc", "event_id": null}
+{"timestamp": "2026-10-20T02:43:36+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "5d985910-38c5-4684-92f2-70caf892ce1d", "event_id": null}
+{"timestamp": "2026-10-20T02:44:52+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "216d6dd1-8040-4944-9247-2a0539df9c5c", "event_id": null}
+{"timestamp": "2026-10-20T02:45:42+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "2fbd47ee-fa44-4649-84a9-dff8395c1b5c", "event_id": null}
+{"timestamp": "2026-10-20T02:47:38+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "cabb53ed-e404-4432-8216-e14f6df4e521", "event_id": null}
+{"timestamp": "2026-10-20T02:48:53+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "9959a443-f65d-47c8-a88e-5577af6650cf", "event_id": null}
+{"timestamp": "2026-10-20T02:51:17+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "dffc7a2a-15d4-4668-97b7-2bc144ffab70", "event_id": null}
+/app/src/monitoring/adapter/inbound/http/router.py:340: SAWarning: Column 'monitoring.improvement_plan.id' is marked as a member of the primary key for table 'monitoring.improvement_plan', but has no Python-side or server-side default generator indicated, nor does it indicate 'autoincrement=True' or 'nullable=True', and no explicit value is passed.  Primary key columns typically may not store NULL.
+  row = session.execute(insert(improvement_plan).values(**values).returning(improvement_plan)).one()
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 203, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/monitoring/observability.py", line 108, in request_logging_middleware
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 179, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 678, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 2809, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 1837, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 2892, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 1863, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 1326, in handle
+    await effective_context.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 374, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/monitoring/adapter/inbound/http/router.py", line 341, in create_improvement_plan
+    return _row(row)
+           ^^^^^^^^^
+  File "/app/src/monitoring/adapter/inbound/http/router.py", line 444, in _row
+    return {key: _serialize(value) for key, value in mapping.items()}
+                 ^^^^^^^^^^^^^^^^^
+  File "/app/src/monitoring/adapter/inbound/http/router.py", line 434, in _serialize
+    return value.isoformat()
+           ^^^^^^^^^^^^^^^
+AttributeError: 'UUID' object has no attribute 'isoformat'
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+INFO:     Started server process [10]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:18001 (Press CTRL+C to quit)
+{"timestamp": "2026-10-20T03:02:34+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "9bdcb7dc-70c5-4b4b-89d6-a0308f0fd247", "event_id": null}
+INFO:     127.0.0.1:44440 - "GET /api/v1/health HTTP/1.1" 200 OK
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+INFO:     Started server process [10]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:18001 (Press CTRL+C to quit)
+/app/src/monitoring/adapter/inbound/http/router.py:340: SAWarning: Column 'monitoring.improvement_plan.id' is marked as a member of the primary key for table 'monitoring.improvement_plan', but has no Python-side or server-side default generator indicated, nor does it indicate 'autoincrement=True' or 'nullable=True', and no explicit value is passed.  Primary key columns typically may not store NULL.
+  row = session.execute(insert(improvement_plan).values(**values).returning(improvement_plan)).one()
+{"timestamp": "2026-10-20T03:05:33+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "26882372-830d-45eb-a900-a38798bdcdf0", "event_id": null}
+{"timestamp": "2026-10-20T03:07:02+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "ee39a07c-6289-4610-a1a0-101a59e14cb5", "event_id": null}
+{"timestamp": "2026-10-20T03:10:14+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "c009a405-f75e-4b10-938b-4706e1c5b811", "event_id": null}
+INFO:     127.0.0.1:36740 - "POST /api/v1/improvement-plans HTTP/1.1" 201 Created
+{"timestamp": "2026-10-20T03:15:42+0000", "level": "INFO", "logger": "monitoring", "message": "http_request_completed", "trace_id": null, "correlation_id": "65497f88-4345-431d-aab3-289df53ea907", "event_id": null}
+INFO:     127.0.0.1:48528 - "GET /api/v1/improvement-plans/ccaad70b-2b9c-4401-bb7c-044e055baf01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49970 - "PUT /api/v1/improvement-plans/46652557-b572-4b46-8927-0b7826e2d9c2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44206 - "GET /api/v1/health HTTP/1.1" 200 OK
