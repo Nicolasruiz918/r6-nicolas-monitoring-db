@@ -1,0 +1,21 @@
+      ambiente       
+---------------------
+ r6_contract_test_db
+(1 row)
+
+     column_name     | data_type | is_nullable 
+---------------------+-----------+-------------
+ specific_actions    | text      | NO
+ specific_actions_v2 | jsonb     | YES
+(2 rows)
+
+ total_planes | jsonb_conservados | inconsistencias 
+--------------+-------------------+-----------------
+            3 |                 3 |               0
+(1 row)
+
+ contract_aplicado 
+-------------------
+                 0
+(1 row)
+
