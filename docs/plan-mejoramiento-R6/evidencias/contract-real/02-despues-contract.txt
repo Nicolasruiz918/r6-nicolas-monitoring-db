@@ -1,0 +1,22 @@
+      ambiente       
+---------------------
+ r6_contract_test_db
+(1 row)
+
+   column_name    | data_type | is_nullable 
+------------------+-----------+-------------
+ specific_actions | jsonb     | NO
+(1 row)
+
+ total_planes | acciones_sin_texto 
+--------------+--------------------
+            3 |                  0
+(1 row)
+
+       title        |                                          specific_actions                                           
+--------------------+-----------------------------------------------------------------------------------------------------
+ R6 CONTRACT TEST 1 | {"actions": [{"text": "Seguimiento semanal al aprendiz"}], "version": 1}
+ R6 CONTRACT TEST 2 | {"actions": [{"text": "Evaluación y acompañamiento técnico ✅"}], "version": 1}
+ R6 CONTRACT TEST 3 | {"actions": [{"text": "Acción 1: revisar evidencias.\nAcción 2: corregir errores."}], "version": 1}
+(3 rows)
+
