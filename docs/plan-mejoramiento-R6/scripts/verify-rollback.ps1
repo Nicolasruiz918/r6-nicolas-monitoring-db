@@ -2,6 +2,7 @@ param(
   [string]$EnvFile = '.env.develop',
   [ValidateSet('develop','qa','staging','main')][string]$Environment = 'develop',
   [ValidateRange(1,1)][int]$Count = 1,
+  [string]$InfraPath = '',
   [switch]$AllowIsolatedEnvironment
 )
 
@@ -11,7 +12,11 @@ if (-not $AllowIsolatedEnvironment) {
 if ($Environment -eq 'main') {
   throw 'El perfil main no se revierte directamente; replique su configuración en una base aislada.'
 }
-$infraPath = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..\design-software-docker-infra')).Path
+if ($InfraPath) {
+  $infraPath = (Resolve-Path -LiteralPath $InfraPath).Path
+} else {
+  $infraPath = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..\design-software-docker-infra')).Path
+}
 if (-not [System.IO.Path]::IsPathRooted($EnvFile)) { $EnvFile = Join-Path $infraPath $EnvFile }
 if (-not (Test-Path -LiteralPath $EnvFile)) { throw "No existe el archivo de ambiente: $EnvFile" }
 
