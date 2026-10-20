@@ -1,0 +1,29 @@
+ ambiente  
+-----------
+ r6_dev_db
+(1 row)
+
+     column_name     | data_type | is_nullable 
+---------------------+-----------+-------------
+ specific_actions    | text      | NO
+ specific_actions_v2 | jsonb     | NO
+(2 rows)
+
+ total_planes | jsonb_conservados | inconsistencias 
+--------------+-------------------+-----------------
+            3 |                 3 |               0
+(1 row)
+
+ contract_pendiente 
+--------------------
+                  0
+(1 row)
+
+          title           |    specific_actions     |                                   specific_actions_v2                                    
+--------------------------+-------------------------+------------------------------------------------------------------------------------------
+ R6 FOUR ENVS r6_dev_db 1 | Seguimiento académico   | {"actions": [{"text": "Seguimiento académico"}], "version": 1}
+ R6 FOUR ENVS r6_dev_db 2 | Evaluación técnica ✅   | {"actions": [{"text": "Evaluación técnica ✅"}], "version": 1}
+ R6 FOUR ENVS r6_dev_db 3 | Revisión de evidencias.+| {"actions": [{"text": "Revisión de evidencias.\nCorrección de errores."}], "version": 1}
+                          | Corrección de errores.  | 
+(3 rows)
+

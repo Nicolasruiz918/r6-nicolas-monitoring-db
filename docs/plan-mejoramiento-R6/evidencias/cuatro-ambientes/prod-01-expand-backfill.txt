@@ -1,0 +1,22 @@
+    ambiente    
+----------------
+ r6_prod_sim_db
+(1 row)
+
+ changesets_ejecutados 
+-----------------------
+                    26
+(1 row)
+
+                       id                       | exectype 
+------------------------------------------------+----------
+ r6-monitoring-expand-specific-actions-v2-991   | EXECUTED
+ r6-monitoring-backfill-specific-actions-v2-992 | EXECUTED
+(2 rows)
+
+     column_name     | data_type 
+---------------------+-----------
+ specific_actions    | text
+ specific_actions_v2 | jsonb
+(2 rows)
+
