@@ -73,3 +73,33 @@ databaseChangeLog:
         - sqlFile: {path: 990_hu_mon_001_kpi_partitions_append_only.sql, relativeToChangelogFile: true, splitStatements: false, stripComments: false}
       rollback:
         - sqlFile: {path: ../../05_rollbacks/01_ddl/04_alter/990_hu_mon_001_kpi_partitions_append_only.rollback.sql, relativeToChangelogFile: true, stripComments: false}
+
+  - changeSet:
+      id: r6-monitoring-expand-specific-actions-v2-991
+      author: codex
+      labels: "R6,expand,monitoring"
+      comment: "R6 EXPAND: añade una representación JSONB nullable sin retirar specific_actions"
+      preconditions:
+        - onFail: HALT
+        - tableExists: {tableName: improvement_plan, schemaName: monitoring}
+        - columnExists: {tableName: improvement_plan, columnName: specific_actions, schemaName: monitoring}
+        - not:
+            columnExists: {tableName: improvement_plan, columnName: specific_actions_v2, schemaName: monitoring}
+      changes:
+        - sqlFile: {path: r6_expand_specific_actions_v2.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/04_alter/r6_expand_specific_actions_v2.rollback.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+
+  - changeSet:
+      id: r6-monitoring-backfill-specific-actions-v2-992
+      author: codex
+      labels: "R6,backfill,monitoring"
+      comment: "R6 BACKFILL: conserva el texto exacto dentro de un documento JSONB versionado"
+      preconditions:
+        - onFail: HALT
+        - columnExists: {tableName: improvement_plan, columnName: specific_actions, schemaName: monitoring}
+        - columnExists: {tableName: improvement_plan, columnName: specific_actions_v2, schemaName: monitoring}
+      changes:
+        - sqlFile: {path: r6_backfill_specific_actions_v2.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/04_alter/r6_backfill_specific_actions_v2.rollback.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}

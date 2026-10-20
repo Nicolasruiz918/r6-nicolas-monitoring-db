@@ -1,0 +1,7 @@
+Identificador: R6-TEST-FULL-20261019
+Requisito: R6.c
+Fecha: 2026-10-19
+Comando: .venv\Scripts\python.exe -m pytest -q
+Resultado: 1 failed, 18 passed, 4 skipped.
+Fallo: tests/test_monitoring_http_contract.py requiere design-software-docs/07-api/contracts/openapi/monitoring.yaml, repositorio que no está presente en el workspace.
+Estado: bloqueado por dependencia externa; no se alteró la prueba para ocultar el fallo.

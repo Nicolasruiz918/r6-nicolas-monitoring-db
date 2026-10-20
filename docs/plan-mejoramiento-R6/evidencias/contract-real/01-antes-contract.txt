@@ -1,0 +1,19 @@
+      ambiente       
+---------------------
+ r6_contract_test_db
+(1 row)
+
+     column_name     | data_type 
+---------------------+-----------
+ specific_actions    | text
+ specific_actions_v2 | jsonb
+(2 rows)
+
+       title        |            specific_actions            |                                         specific_actions_v2                                         
+--------------------+----------------------------------------+-----------------------------------------------------------------------------------------------------
+ R6 CONTRACT TEST 1 | Seguimiento semanal al aprendiz        | {"actions": [{"text": "Seguimiento semanal al aprendiz"}], "version": 1}
+ R6 CONTRACT TEST 2 | Evaluación y acompañamiento técnico ✅ | {"actions": [{"text": "Evaluación y acompañamiento técnico ✅"}], "version": 1}
+ R6 CONTRACT TEST 3 | Acción 1: revisar evidencias.         +| {"actions": [{"text": "Acción 1: revisar evidencias.\nAcción 2: corregir errores."}], "version": 1}
+                    | Acción 2: corregir errores.            | 
+(3 rows)
+

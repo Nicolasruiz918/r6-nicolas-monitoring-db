@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: r6-monitoring-contract-specific-actions-v2-993
+      author: codex
+      context: r6-contract
+      labels: "R6,contract,monitoring"
+      comment: "R6 CONTRACT: se ejecuta únicamente desde changelog-contract.yaml tras validación"
+      preconditions:
+        - onFail: HALT
+        - columnExists: {tableName: improvement_plan, columnName: specific_actions, schemaName: monitoring}
+        - columnExists: {tableName: improvement_plan, columnName: specific_actions_v2, schemaName: monitoring}
+        - sqlCheck:
+            expectedResult: "0"
+            sql: |
+              SELECT count(*)
+              FROM monitoring.improvement_plan
+              WHERE CASE
+                WHEN specific_actions_v2 IS NULL THEN 1
+                WHEN jsonb_typeof(specific_actions_v2) <> 'object' THEN 1
+                WHEN specific_actions_v2->'version' IS DISTINCT FROM to_jsonb(1) THEN 1
+                WHEN jsonb_typeof(specific_actions_v2->'actions') <> 'array' THEN 1
+                WHEN jsonb_array_length(specific_actions_v2->'actions') <> 1 THEN 1
+                WHEN jsonb_typeof(specific_actions_v2->'actions'->0) <> 'object' THEN 1
+                WHEN jsonb_typeof(specific_actions_v2->'actions'->0->'text') <> 'string' THEN 1
+                WHEN (specific_actions_v2->'actions'->0->>'text') IS DISTINCT FROM specific_actions THEN 1
+                ELSE 0
+              END = 1
+      changes:
+        - sqlFile: {path: r6_contract_specific_actions_v2.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}
+      rollback:
+        - sqlFile: {path: ../../05_rollbacks/01_ddl/04_alter/r6_contract_specific_actions_v2.rollback.sql, relativeToChangelogFile: true, splitStatements: true, stripComments: false}

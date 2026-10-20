@@ -1,0 +1,6 @@
+Fecha: 2026-10-19
+Ambientes: r6_sql_test/DS aislado para SQL; r6_http_test/DS aislado para HTTP
+Comando: pytest -q tests/test_specific_actions_compat.py tests/test_r6_postgres_integration.py tests/test_r6_http_postgres_integration.py
+Resultado: 5 passed, 3 warnings in 2.07s
+Ruff: All checks passed!
+Nota: las advertencias fueron no funcionales y quedaron registradas en la salida real.

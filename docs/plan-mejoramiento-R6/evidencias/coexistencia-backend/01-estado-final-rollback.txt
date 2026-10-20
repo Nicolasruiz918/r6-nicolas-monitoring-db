@@ -1,0 +1,29 @@
+  base_de_prueba   
+-------------------
+ r6_coexistence_db
+(1 row)
+
+                       id                       | exectype 
+------------------------------------------------+----------
+ r6-monitoring-expand-specific-actions-v2-991   | EXECUTED
+ r6-monitoring-backfill-specific-actions-v2-992 | EXECUTED
+(2 rows)
+
+     column_name     | data_type | is_nullable 
+---------------------+-----------+-------------
+ specific_actions    | text      | NO
+ specific_actions_v2 | jsonb     | YES
+(2 rows)
+
+                  id                  |             title              |                      specific_actions                      |                                         specific_actions_v2                                         |   status    
+--------------------------------------+--------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+-------------
+ ccaad70b-2b9c-4401-bb7c-044e055baf01 | R6 convivencia backend antiguo | Realizar seguimiento y verificar avances.                  | {"actions": [{"text": "Realizar seguimiento y verificar avances."}], "version": 1}                  | PENDING
+ 46652557-b572-4b46-8927-0b7826e2d9c2 | R6 convivencia backend nuevo   | Acciones finales almacenadas en JSONB despues de CONTRACT. | {"actions": [{"text": "Acciones finales almacenadas en JSONB despues de CONTRACT."}], "version": 1} | IN_PROGRESS
+ 18fbdcbb-f406-42b5-9882-d4851ffe00b0 | R6 POST despues de CONTRACT    | Registrar evidencia de escritura posterior a CONTRACT.     | {"actions": [{"text": "Registrar evidencia de escritura posterior a CONTRACT."}], "version": 1}     | PENDING
+(3 rows)
+
+ total_planes | inconsistentes 
+--------------+----------------
+            3 |              0
+(1 row)
+

@@ -1,0 +1,24 @@
+Fecha: 2026-10-19
+Ambiente: local Windows PowerShell
+Commit probado servicio: ajuste de prueba de contrato (pendiente de publicación al momento de esta captura)
+
+Comandos ejecutados:
+  ..\design-software-monitoring-service\.venv\Scripts\python.exe -m pytest -q
+  ..\design-software-monitoring-service\.venv\Scripts\python.exe -m ruff check .
+  docker version
+  docker info
+  docker ps
+  docker compose version
+
+Resultados reales:
+  pytest: 19 passed, 5 skipped, 1 warning in 1.36s
+  ruff: All checks passed!
+  docker compose version: v5.5.1
+  docker version/info/ps: bloqueados por permission denied al pipe npipe:////./pipe/docker_engine
+
+Estado:
+  Pruebas Python y Ruff: APROBADO.
+  Pruebas PostgreSQL/Liquibase y rollback multiambiente: BLOQUEADO; no se declara aprobado.
+
+Evidencia complementaria:
+  La prueba de contrato utiliza el repositorio local r6-nicolas-design-software-docs como dependencia sin modificarlo.

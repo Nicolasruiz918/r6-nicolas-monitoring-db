@@ -1,0 +1,7 @@
+Output of SELECT id, author, filename, exectype FROM databasechangelog WHERE id='r6-monitoring-contract-specific-actions-v2-993' AND author='codex' AND filename='01_ddl/04_alter/r6-contract.yaml' AND exectype='EXECUTED' ORDER BY orderexecuted DESC LIMIT 1:
+-- Empty Resultset --
+
+Output of SELECT id, author, filename, exectype FROM databasechangelog ORDER BY orderexecuted DESC LIMIT 1:
+ID | AUTHOR | FILENAME | EXECTYPE |
+hu-mon-f3-grants-outbox | jesus-gonzalez | 03_dcl/01_grants/changelog.yaml | EXECUTED | 
+

@@ -1,0 +1,6 @@
+Fecha: 2026-10-19
+Comando: pytest -q
+Resultado final: 24 passed, 5 warnings in 1.85s.
+Repositorio de contrato utilizado: design-software-docs-main/07-api/contracts/openapi/monitoring.yaml.
+La prueba R6 exige MONITORING_R6_TEST_DATABASE_URL, MONITORING_R6_TEST_ALLOW_SCHEMA_RESET=1 y una base local con nombre r6.
+Warnings: Starlette/httpx deprecated, defaults UUID de SQLAlchemy y permiso de .pytest_cache; no cambiaron el resultado.

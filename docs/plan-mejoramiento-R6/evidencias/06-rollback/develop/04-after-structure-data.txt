@@ -1,0 +1,9 @@
+Output of SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_schema='monitoring' AND table_name='improvement_plan' AND column_name IN ('specific_actions','specific_actions_v2') ORDER BY column_name:
+COLUMN_NAME | DATA_TYPE | IS_NULLABLE |
+specific_actions | text | NO | 
+specific_actions_v2 | jsonb | NO | 
+
+Output of SELECT count(*) AS total_rows, count(*) FILTER (WHERE specific_actions IS NULL) AS null_actions, count(*) FILTER (WHERE specific_actions_v2 IS NULL) AS null_transitional, count(*) FILTER (WHERE specific_actions_v2->'actions'->0->>'text' <> specific_actions) AS mismatched_rows FROM monitoring.improvement_plan:
+TOTAL_ROWS | NULL_ACTIONS | NULL_TRANSITIONAL | MISMATCHED_ROWS |
+0 | 0 | 0 | 0 | 
+

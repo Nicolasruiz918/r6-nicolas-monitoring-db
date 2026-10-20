@@ -1,0 +1,1 @@
+Revirtiendo exactamente el último changeset R6: r6-monitoring-contract-specific-actions-v2-993 (rollback-count 1).

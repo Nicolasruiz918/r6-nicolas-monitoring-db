@@ -1,0 +1,16 @@
+     ambiente     
+------------------
+ r6_backfill_test
+(1 row)
+
+ total_planes | registros_migrados | pendientes | inconsistencias 
+--------------+--------------------+------------+-----------------
+            3 |                  3 |          0 |               0
+(1 row)
+
+ orderexecuted |                       id                       | exectype 
+---------------+------------------------------------------------+----------
+            12 | r6-monitoring-expand-specific-actions-v2-991   | EXECUTED
+            13 | r6-monitoring-backfill-specific-actions-v2-992 | EXECUTED
+(2 rows)
+

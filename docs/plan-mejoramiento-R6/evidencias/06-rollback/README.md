@@ -1,0 +1,1 @@
+Los cuatro ambientes requieren ejecución aislada real. El script `scripts/verify-rollback.ps1` bloquea por defecto la operación y exige `-AllowIsolatedEnvironment`; el perfil `main` nunca se revierte directamente.
